@@ -1,0 +1,496 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Advocate Health's Guide to AI in Healthcare</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			:root {
+				--primary-color: #4ECDC4;  /* Light blue-green */
+				--secondary-color: #7FDBFF; /* Lighter blue */
+				--accent-color: #4CAF50;
+				--text-light: #ffffff;
+				--text-dark: #333333;
+			}
+
+			/* Reset wrapper and body styles */
+			#wrapper {
+				overflow-y: auto !important;
+				height: auto !important;
+				min-height: 100vh;
+			}
+
+			#header {
+				position: relative !important;
+				height: auto !important;
+				min-height: auto !important;
+				padding: 1em 0;
+			}
+
+			#header .content {
+				padding: 1em 0;
+			}
+
+			.main-nav {
+				display: grid;
+				grid-template-columns: repeat(5, 1fr);
+				gap: 10px;
+				margin: 15px auto;
+				text-align: center;
+				max-width: 1000px;
+				justify-items: center;
+			}
+
+			.main-nav-item {
+				padding: 15px;
+				background: rgba(255, 255, 255, 0.15);
+				border-radius: 8px;
+				transition: all 0.3s ease;
+				backdrop-filter: blur(5px);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				text-decoration: none;
+				width: 100%;
+				max-width: 180px;
+			}
+
+			.main-nav-item:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+				background: rgba(255, 255, 255, 0.25);
+			}
+
+			.main-nav-item h3 {
+				color: var(--text-light);
+				margin: 5px 0;
+				font-size: 1.2em;
+			}
+
+			.main-nav-item p {
+				color: var(--text-light);
+				opacity: 0.9;
+				font-size: 0.9em;
+				margin: 3px 0;
+			}
+
+			.main-nav-icon {
+				font-size: 2em;
+				margin: 0 5px;
+				color: var(--primary-color);
+				transition: transform 0.3s ease;
+			}
+
+			.main-nav-item:hover .main-nav-icon {
+				transform: scale(1.1);
+				color: var(--secondary-color);
+			}
+
+			.feature-grid {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 15px 0;
+				gap: 10px;
+				flex-wrap: wrap;
+			}
+
+			.feature-item {
+				padding: 8px 15px;
+				background: rgba(255, 255, 255, 0.15);
+				border-radius: 20px;
+				transition: all 0.3s ease;
+				backdrop-filter: blur(5px);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			.feature-item:hover {
+				background: rgba(255, 255, 255, 0.25);
+				transform: translateY(-2px);
+			}
+
+			.health-icon {
+				font-size: 1.1em;
+				color: var(--primary-color);
+			}
+
+			.feature-item p {
+				margin: 0;
+				color: var(--text-light);
+				font-size: 0.85em;
+			}
+
+			.main-title {
+				font-size: 1.8em;
+				margin-bottom: 10px;
+				color: var(--text-light);
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+			}
+
+			.subtitle {
+				font-size: 1em;
+				color: var(--text-light);
+				opacity: 0.9;
+				margin-bottom: 15px;
+			}
+
+			#header .logo {
+				display: none;
+			}
+
+			nav {
+				display: none;
+			}
+
+			/* Ensure main content is visible */
+			#main {
+				position: relative !important;
+				top: auto !important;
+				left: auto !important;
+				width: 100% !important;
+				height: auto !important;
+				overflow: visible !important;
+			}
+
+			/* Fix article positioning */
+			article {
+				position: relative !important;
+				top: auto !important;
+				left: auto !important;
+				width: 100% !important;
+				height: auto !important;
+				overflow: visible !important;
+			}
+
+			.contact-info {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 30px;
+				margin: 15px 0;
+				color: var(--text-light);
+			}
+
+			.contact-item {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 1.1em;
+			}
+
+			.contact-icon {
+				color: var(--primary-color);
+				font-size: 1.2em;
+			}
+
+			.contact-item a {
+				color: var(--text-light);
+				text-decoration: none;
+				transition: color 0.3s ease;
+			}
+
+			.contact-item a:hover {
+				color: var(--primary-color);
+			}
+
+			.footer-logo {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+
+			.footer-logo img {
+				max-width: 400px;
+				width: 100%;
+				height: auto;
+				opacity: 0.9;
+				transition: opacity 0.3s ease;
+			}
+
+			.footer-logo img:hover {
+				opacity: 1;
+			}
+
+			/* Ensure the logo doesn't overlap with the footer */
+			#footer {
+				position: relative;
+				z-index: 2;
+			}
+
+			/* Hide page logo on home page */
+			body.is-preload .page-logo {
+				display: none;
+			}
+
+			/* Show page logo on other pages */
+			body:not(.is-preload) .page-logo {
+				display: block;
+			}
+
+			.page-logo {
+				position: fixed;
+				bottom: 60px;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 1;
+				text-align: center;
+			}
+
+			.page-logo img {
+				max-width: 400px;
+				width: 100%;
+				height: auto;
+				opacity: 0.9;
+				transition: opacity 0.3s ease;
+			}
+
+			.page-logo img:hover {
+				opacity: 1;
+			}
+
+			/* Consistent image sizing for all pages */
+			.image.main {
+				max-width: 45%;
+				margin: 0 auto 2em auto;
+			}
+
+			.image.main img {
+				width: 100%;
+				height: auto;
+				object-fit: contain;
+			}
+
+			/* Ensure images don't get too small on mobile */
+			@media screen and (max-width: 736px) {
+				.image.main {
+					max-width: 60%;
+				}
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="content">
+							<div class="inner">
+								<h1 class="main-title">Advocate Health's Guide to AI in Healthcare</h1>
+								<p class="subtitle">Feel free to navigate through our different sections to learn more about General AI implementation in healthcare, DAX Copilot, and Artisight solutions.</p>
+								
+								<div class="main-nav">
+									<a href="#about" class="main-nav-item">
+										<span class="icon solid fa-hospital main-nav-icon"></span>
+										<h3>About</h3>
+										<p>Learn about Advocate Health</p>
+									</a>
+									<a href="#general-ai" class="main-nav-item">
+										<span class="icon solid fa-brain main-nav-icon"></span>
+										<h3>General AI</h3>
+										<p>AI in Healthcare</p>
+									</a>
+									<a href="#dax" class="main-nav-item">
+										<span class="icon solid fa-microphone main-nav-icon"></span>
+										<h3>DAX</h3>
+										<p>Voice Documentation</p>
+									</a>
+									<a href="#artisight" class="main-nav-item">
+										<span class="icon solid fa-video main-nav-icon"></span>
+										<h3>Artisight</h3>
+										<p>Smart Monitoring</p>
+									</a>
+									<a href="#feedback" class="main-nav-item">
+										<span class="icon solid fa-comment-dots main-nav-icon"></span>
+										<h3>Feedback</h3>
+										<p>Share Your Thoughts</p>
+									</a>
+								</div>
+
+								<div class="contact-info">
+									<div class="contact-item">
+										<span class="icon solid fa-phone contact-icon"></span>
+										<a href="tel:###-###-####">###-###-####</a>
+									</div>
+									<div class="contact-item">
+										<span class="icon solid fa-envelope contact-icon"></span>
+										<a href="mailto:address@email.com">address@email.com</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">About</h2>
+								<span class="image main"><img src="images/Advocate Health Stats.webp" alt="Advocate Health Statistics" /></span>
+								
+								<h3>About Advocate Health: Driving Innovation in Healthcare</h3>
+								<p>At Advocate Health, we are redefining what it means to deliver care in the 21st century. As one of the largest nonprofit health systems in the United States, we are committed to advancing the future of healthcare through purposeful innovation, responsible technology, and data-driven decision-making.</p>
+
+								<h3>Our Approach to Innovation</h3>
+								<p>Our approach to innovation is rooted in the belief that technology should empower, not replace, the human touch. That's why we're investing in the development and deployment of advanced tools, including artificial intelligence, machine learning, and ambient technologies that enhance clinical decision-making, streamline workflows, and improve both patient and provider experiences.</p>
+
+								<h3>Leading the Way in Healthcare Technology</h3>
+								<p>From research partnerships to enterprise-wide digital strategies, Advocate Health is leading the way in integrating ethical, scalable AI solutions across hospitals, clinics, and care teams. These efforts are not only improving the quality and efficiency of care but are also helping build a more equitable, accessible health system for all.</p>
+
+								<h3>Our Commitment to Excellence</h3>
+								<p>At every level of our organization, we prioritize innovation that is responsible, inclusive, and designed to meet the evolving needs of our communities. Whether in the operating room, at the bedside, or behind the scenes, Advocate Health continues to push boundaries and set new standards for what is possible in modern healthcare.</p>
+							</article>
+
+						<!-- General AI -->
+							<article id="general-ai">
+								<h2 class="major">General AI</h2>
+								<span class="image main"><img src="images/General AI.webp" alt="General AI" /></span>
+								<h3>What is Artificial Intelligence?</h3>
+								<p>Artificial Intelligence (AI) refers to computer systems that are trained to recognize patterns and make informed suggestions based on large amounts of real-world data. It is a tool that assists doctors, nurses, and clinical teams to make more accurate and personalized care.</p>
+
+								<h3>What Are the Benefits?</h3>
+								<ul>
+									<li><strong>Personalized Care:</strong> AI helps us suggest treatment plans tailored to your medical history, current condition, and how similar patients have responded.</li>
+									<li><strong>More Accurate Results:</strong> AI helps reduce human error and catch details that might be missed.</li>
+									<li><strong>Faster Answers:</strong> AI can rapidly process medical data, allowing healthcare providers to have instant tools that help them understand the diagnosis.</li>
+								</ul>
+
+								<h3>How Is AI Being Used?</h3>
+								<ul>
+									<li>Medical Imaging Analysis</li>
+									<li>Health Risk Prediction</li>
+									<li>Diagnosis Support</li>
+									<li>Monitoring Personal Health Trends</li>
+									<li>Expanding Healthcare Accessibility</li>
+									<li>Detecting Public Health Trends</li>
+									<li>Documentation Assistance</li>
+								</ul>
+
+								<h3>How is it controlled and regulated?</h3>
+								<p>At Advocate Health, AI tools are carefully selected and thoroughly reviewed to ensure they are safe, effective, and equitable. We use a comprehensive review process to assess any AI technology before it's used in our system.</p>
+								<ul>
+									<li>Internal evaluation by our AI Governance Committee, which includes clinical experts, data scientists, ethicists, and legal advisors.</li>
+									<li>Alignment with national guidelines such as the FAIR-AI framework, which emphasizes safety, explainability, and accountability.</li>
+									<li>Special protocols for high-risk cases, including in-depth review of potential ethical, regulatory, and clinical impacts.</li>
+								</ul>
+
+								<h3>How Do We Prioritize Safety?</h3>
+								<p>Advocate health implements special protocols for all high-risk cases, including an in-depth review of potential ethical, regulatory, and clinical impacts. To minimize risk, we have:</p>
+								<ul>
+									<li>Trained personnel to provide comprehensive reviews of AI use</li>
+									<li>Screening measures to determine risk & assess via in-depth reviews</li>
+									<li>Training our tools on diverse demographics to mitigate bias</li>
+									<li>AI Labels that offer transparency about the tools and how they are used</li>
+								</ul>
+							</article>
+
+						<!-- DAX -->
+							<article id="dax">
+								<h2 class="major">DAX</h2>
+								<span class="image main"><img src="images/Dax_Copilot.jpg" alt="DAX Copilot" /></span>
+								<h3>What is DAX Copilot?</h3>
+								<p>DAX Copilot is a documentation tool powered by artificial intelligence (AI) that supports your healthcare team in note taking. By using voice commands, DAX Copilot allows doctors and nurses to automatically take notes so that they can focus entirely on the patients.</p>
+
+								<h3>Why is DAX Copilot Used?</h3>
+								<p>DAX Copilot is used to reduce the time healthcare professionals spend on administrative work. This allows them to spend more time with you, leading to better care and quicker responses.</p>
+
+								<h3>When and Where Will DAX Copilot Be Used?</h3>
+								<p>DAX Copilot will be used in various clinical settings, including patient visits and consultations. It operates in real-time as healthcare professionals interact with you and record relevant health data.</p>
+
+								<h3>How Will DAX Copilot Impact You?</h3>
+								<h4>Clinical Benefits</h4>
+								<ul>
+									<li><strong>More Time for Care:</strong> By handling routine documentation, DAX Copilot frees up more of your healthcare professional's time, allowing them to spend more time focused on your care.</li>
+									<li><strong>Faster Updates to Your Health Records:</strong> Real-time documentation means that your health records are updated instantly, improving the coordination of your care.</li>
+									<li><strong>Increased Efficiency:</strong> By reducing the burden of manual documentation, healthcare providers can be more efficient and attentive, reducing the chances of errors and improving patient care outcomes.</li>
+								</ul>
+
+								<h4>Audio Use</h4>
+								<p>DAX Copilot uses voice recognition to transcribe the conversation between you and your healthcare provider into notes for your medical record. This program will only capture details relevant to your health and care. DAX does not record audio.</p>
+
+								<h4>Privacy and Data Security</h4>
+								<p>Any data processed through DAX Copilot is encrypted and stored securely, in compliance with HIPAA privacy standards.</p>
+
+								<h4>Patient Options and Alternatives</h4>
+								<p>DAX Copilot helps make healthcare more efficient, but if you have concerns or feedback about how it operates, you can share your thoughts through our feedback system. Patients are always encouraged to ask questions and engage with their healthcare team about the tools being used to support their care.</p>
+							</article>
+
+						<!-- Artisight -->
+							<article id="artisight">
+								<h2 class="major">Artisight</h2>
+								<span class="image main"><img src="images/Artisight Website Pic.png" alt="Artisight Website" /></span>
+								<h3>What is Artisight?</h3>
+								<p>Artisight is a cutting-edge technology used in our hospital to improve your care. It uses cameras, sensors, and artificial intelligence (AI) to support your healthcare team by providing real-time, remote assistance and monitoring. This helps to improve the quality of care and ensures that healthcare professionals can quickly respond to your emerging needs.</p>
+
+								<h3>Why is Artisight Used?</h3>
+								<p>Artisight is designed to make your hospital experience safer and more efficient. By using smart cameras and AI detection, it helps prevent potential health risks by alerting the care team when necessary. It also allows remote care team members to assist bedside staff in real time, enhancing the overall care process.</p>
+
+								<h3>When and Where Will Artisight Be Used?</h3>
+								<p>Artisight will be available in all patient rooms (excluding maternity rooms), emergency department bays, and operating rooms across the hospital. The cameras will be on at all times, and you may see a remote care team member appear on your room's TV screen for communication.</p>
+
+								<h3>How Will Artisight Impact You?</h3>
+								<h4>Audio/Video Use</h4>
+								<ul>
+									<li>The cameras are used for video streaming, allowing care team members to observe and communicate with you remotely. These cameras do not record video or audio.</li>
+									<li>If the camera is active, you will see a visual indicator in your room, such as a green light or icon on your TV screen.</li>
+								</ul>
+
+								<h4>Data Security and Privacy</h4>
+								<p>Artisight ensures that your personal health information (PHI) is protected. The data collected via cameras is strictly controlled and accessible only by authorized personnel based on their role and access level in the hospital's system.</p>
+								<p>Artisight cannot be used by any non-authorized personnel, including law enforcement, security, or non-clinical staff.</p>
+
+								<h4>Patient Benefits</h4>
+								<ul>
+									<li><strong>Enhanced Safety:</strong> Artisight helps prevent falls by predicting when you might be at risk.</li>
+									<li><strong>Improved Care Delivery:</strong> It allows your care team to quickly respond to your needs, even if they are not physically in your room.</li>
+									<li><strong>Better Collaboration:</strong> Remote care team members can assist when needed, helping the bedside staff provide faster and more comprehensive care.</li>
+								</ul>
+
+								<h4>Patient Options and Alternatives</h4>
+								<p>If you prefer not to have digital monitoring, you have the right to opt out. In these cases, the camera to be turned to privacy mode or adjusted to avoid viewing you directly. However, the camera cannot be fully turned off. You can provide feedback or raise any concerns about this system through patient feedback channels.</p>
+							</article>
+
+						<!-- Feedback Form -->
+							<article id="feedback">
+								<h2 class="major">Feedback Form</h2>
+								<p>We value your feedback! Please use the form below to share your thoughts and suggestions.</p>
+								<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeipNXHfvqiPQynZlr3sHNJxKjLwL8SeCk1nonNUWeYUeiuRA/viewform?embedded=true" 
+										width="100%" 
+										height="800" 
+										frameborder="0" 
+										marginheight="0" 
+										marginwidth="0">
+									Loading…
+								</iframe>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">Design: <a href="https://html5up.net/license">HTML5 UP</a>.</p>
+					</footer>
+
+				<!-- Page Logo -->
+					<div class="page-logo">
+						<img src="images/Advocate Health Transparent Logo.webp" alt="Advocate Health Logo" />
+					</div>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
